@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+
+
+    <bean id="MyPerson"
+          class="peaksoft.hw_12.Person">
+
+        <property name="name" value="${Person.name}"/>
+        <property name="age" value="${Person.age}"/>
+        <property name="animal" ref="MyDog"/>
+    </bean>
+
+    <bean id="MyDog"
+          class="peaksoft.hw_12.Dog">
+
+        <property name="name" value="${Dog.name}"/>
+        <property name="age" value="${Dog.age}"/>
+        <property name="breed" value="${Dog.breed}"/>
+        <property name="color" value="${Dog.color}"/>
+    </bean>
+
+
+    <bean id="MyFriends"
+          class="peaksoft.hw_12.Person">
+
+        <property name="name" value="${Person.name1}"/>
+        <property name="age" value="${Person.age1}"/>
+        <property name="animal" ref="MyFriendsCat"/>
+    </bean>
+
+    <bean id="MyFriendsCat"
+          class="peaksoft.hw_12.Cat">
+
+        <property name="name" value="${Cat.name}"/>
+        <property name="age" value="${Cat.age}"/>
+        <property name="breed" value="${Cat.breed}"/>
+        <property name="color" value="${Cat.color}"/>
+    </bean>
+</beans>
